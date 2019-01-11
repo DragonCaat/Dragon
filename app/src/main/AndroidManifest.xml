@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.kaha.dragon">
+
+    <application
+        android:name=".framework.base.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".dragon.ui.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 图片查看器 -->
+        <activity android:name=".dragon.ui.activity.ImagePreviewActivity" />
+        <!-- 展示用户信息的activity -->
+        <activity android:name=".dragon.ui.activity.ShowUserActivity" />
+        <!--社区详情界面-->
+        <activity android:name=".dragon.ui.activity.CommunityDetailActivity" />
+        <!--美图详情界面-->
+        <activity android:name=".dragon.ui.activity.PicDetailActivity" />
+    </application>
+
+</manifest>
