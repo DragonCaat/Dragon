@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -32,6 +33,10 @@ public class TopView extends RelativeLayout {
 
     @BindView(R.id.rl_back)
     RelativeLayout rlBack;
+    @BindView(R.id.iv_back)
+    ImageView ivBack;
+    @BindView(R.id.ll_head)
+    LinearLayout llHead;
 
     public TopView(Context context) {
         super(context);
@@ -83,6 +88,29 @@ public class TopView extends RelativeLayout {
         } else {
             rlBack.setVisibility(GONE);
         }
+    }
+
+    /**
+     * 设置背景颜色
+     *
+     * @param color 背景颜色值
+     * @return void
+     * @date 2019-01-11
+     */
+    public void setBackground(int color) {
+        llHead.setBackgroundColor(color);
+    }
+
+
+    /**
+     * 设置左边图片
+     *
+     * @param imgId 图片的id
+     * @return void
+     * @date 2019-01-11
+     */
+    public void setLeftIcon(int imgId) {
+        ivBack.setImageResource(imgId);
     }
 
     /**
