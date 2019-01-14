@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:background="@color/black_333333">
 
+    <com.kaha.dragon.framework.widget.TopView
+        android:id="@+id/topView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <com.kaha.dragon.dragon.widget.ViewPagerBinner
         android:id="@+id/viewPager_banner"
         android:layout_width="match_parent"

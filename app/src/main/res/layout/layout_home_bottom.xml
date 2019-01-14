@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:background="@color/white_ffffff"
+    android:clipChildren="false"
     android:gravity="center"
     android:orientation="horizontal">
 
     <LinearLayout
         android:id="@+id/ll_home"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
@@ -34,7 +35,7 @@
     <LinearLayout
         android:id="@+id/ll_picture"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
@@ -56,10 +57,17 @@
             android:textSize="12sp" />
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:src="@mipmap/publish"
+        android:visibility="gone" />
+
     <LinearLayout
         android:id="@+id/ll_community"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
@@ -83,7 +91,7 @@
     <LinearLayout
         android:id="@+id/ll_my"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">

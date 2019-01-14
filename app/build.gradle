@@ -43,6 +43,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     //高斯模糊
     implementation 'jp.wasabeef:glide-transformations:2.0.1'
+    //banner
+    implementation 'com.youth.banner:banner:1.4.10'
 
     //刷新加载的效果
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
