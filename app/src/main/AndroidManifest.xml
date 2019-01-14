@@ -13,20 +13,25 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".dragon.ui.activity.MainActivity">
+
+        </activity>
+        <!-- 图片查看器 -->
+        <activity android:name=".dragon.ui.activity.ImagePreviewActivity" />
+        <!-- 展示用户信息的activity -->
+        <activity android:name=".dragon.ui.activity.ShowUserActivity" />
+        <!-- 社区详情界面 -->
+        <activity android:name=".dragon.ui.activity.CommunityDetailActivity" />
+        <!-- 美图详情界面 -->
+        <activity android:name=".dragon.ui.activity.PicDetailActivity" />
+
+        <!-- 欢迎界面 -->
+        <activity android:name=".dragon.ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- 图片查看器 -->
-        <activity android:name=".dragon.ui.activity.ImagePreviewActivity" />
-        <!-- 展示用户信息的activity -->
-        <activity android:name=".dragon.ui.activity.ShowUserActivity" />
-        <!--社区详情界面-->
-        <activity android:name=".dragon.ui.activity.CommunityDetailActivity" />
-        <!--美图详情界面-->
-        <activity android:name=".dragon.ui.activity.PicDetailActivity" />
     </application>
 
 </manifest>
