@@ -33,6 +33,9 @@ public class HomeFragment extends BaseFragment {
     @BindView(R.id.topView)
     TopView topView;
 
+    //vLayout的基础适配器
+//    private DelegateAdapter delegateAdapter;
+//    private GridLayoutHelper gridHelper;
     //首页适配器
     private HomeAdapter adapter;
 
@@ -55,9 +58,31 @@ public class HomeFragment extends BaseFragment {
 
     }
 
+    /**
+     * 初始化VLayout
+     * @date 2019-01-15
+     * @return void
+     * @param ,
+     * */
+    private void initVLayout() {
+//        VirtualLayoutManager layoutManager = new VirtualLayoutManager(context);
+//        homeRecycleView.setLayoutManager(layoutManager);
+//        delegateAdapter = new DelegateAdapter(layoutManager, false);
+//        homeRecycleView.setAdapter(delegateAdapter);
+//        //设置回收复用池的大小
+//        RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
+//        homeRecycleView.setRecycledViewPool(viewPool);
+//        viewPool.setMaxRecycledViews(0, 10);
+//        gridHelper = new GridLayoutHelper(1);
+//        gridHelper.setMarginLeft(20);
+//        gridHelper.setMarginRight(20);
+//        gridHelper.setMarginTop(10);
+//        //自动填充满布局，在设置完权重，若没有占满，自动填充满布局
+//        gridHelper.setAutoExpand(true);
+    }
+
     //初始化图片资源
     private void initImage() {
-
         List<Integer> imageList = new ArrayList<>();
         imageList.add(R.mipmap.pic1);
         imageList.add(R.mipmap.pic2);
