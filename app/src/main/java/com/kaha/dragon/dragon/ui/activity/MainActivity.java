@@ -1,22 +1,31 @@
 package com.kaha.dragon.dragon.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kaha.dragon.R;
 import com.kaha.dragon.dragon.ui.fragment.CommunityFragment;
 import com.kaha.dragon.dragon.ui.fragment.HomeFragment;
 import com.kaha.dragon.dragon.ui.fragment.MineFragment;
 import com.kaha.dragon.dragon.ui.fragment.PictureFragment;
+import com.kaha.dragon.framework.base.MyApplication;
 import com.kaha.dragon.framework.ui.activity.BaseActivity;
+import com.kaha.dragon.framework.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +75,8 @@ public class MainActivity extends BaseActivity {
     private PictureFragment pictureFragment;
     private MineFragment mineFragment;
 
+    private static Boolean isExit = false;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -78,6 +89,31 @@ public class MainActivity extends BaseActivity {
 
         llHome.performClick();
     }
+
+    WindowManager windowManager;
+    View linearLayout;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+       // showFloating();
+    }
+
+    private void showFloating() {
+        windowManager = (WindowManager) MyApplication.getInstance().getSystemService(Context.WINDOW_SERVICE);
+        WindowManager.LayoutParams params = new WindowManager.LayoutParams();
+        LayoutInflater inflater = LayoutInflater.from(MyApplication.getInstance());
+        linearLayout = inflater.inflate(R.layout.layout_floating_item, null);
+
+        params.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+        params.gravity = Gravity.CENTER_VERTICAL | Gravity.RIGHT;
+        //不抢占焦距点
+        params.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+        windowManager.addView(linearLayout, params);
+    }
+
 
     /**
      * 初始化对应的fragment和viewpager
@@ -188,7 +224,7 @@ public class MainActivity extends BaseActivity {
                 if (mineFragment == null) {
                     mineFragment = new MineFragment();
                     transaction.remove(mineFragment).
-                            add(R.id.rl_container, mineFragment).show(communityFragment);
+                            add(R.id.rl_container, mineFragment).show(mineFragment);
                 }
             }
         } else {
@@ -231,6 +267,39 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        homeFragment = null;
+        pictureFragment = null;
+        communityFragment = null;
+        mineFragment = null;
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private Handler handler = new Handler();
+
+    //连续按2次退出运用
+    private void exit() {
+        if (!isExit) {
+            isExit = true;
+            ToastUtil.show(context, "再按一次退出");
+            handler.sendEmptyMessageDelayed(1, 2000);
+        } else {
+            finish();
+        }
+    }
 
     @Override
     public void onActivityReenter(int requestCode, Intent data) {

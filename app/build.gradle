@@ -50,6 +50,9 @@ dependencies {
 //        transitive = true
 //    }
 
+    //音乐播放框架
+    implementation 'com.github.iammert:MusicPlayerView:e3b937c729'
+
     //刷新加载的效果
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'

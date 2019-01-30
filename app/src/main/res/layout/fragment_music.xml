@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/black_333333"
+    android:layout_height="match_parent">
+
+    <co.mobiwise.library.MusicPlayerView
+        android:id="@+id/mpv"
+        android:layout_centerInParent="true"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:buttonColor="#FF0028"
+        app:cover="@mipmap/mycover"
+        app:progressEmptyColor="#20FFFFFF"
+        app:progressLoadedColor="#00815E"
+        app:textColor="#80FFFFFF"
+        app:textSize="14sp" />
+
+</RelativeLayout>

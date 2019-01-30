@@ -31,7 +31,7 @@
         android:layout_gravity="center|left"
         android:layout_marginStart="10dp"
         android:layout_marginTop="6dp"
-        android:text="当爱情来了谁有能说我舍不得寂寞，当爱情走了谁又能说我不觉得快乐"
+        android:text="千言万语抵不过一句话,反反复复握不住一粒沙"
         android:textColor="@color/black_333333"
         android:textSize="16sp" />
 
