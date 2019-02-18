@@ -1,5 +1,6 @@
 package com.kaha.dragon.dragon.ui.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -8,6 +9,7 @@ import com.kaha.dragon.dragon.base.AppConst;
 import com.kaha.dragon.dragon.entity.Community;
 import com.kaha.dragon.dragon.widget.ViewPagerBinner;
 import com.kaha.dragon.framework.ui.activity.BaseActivity;
+import com.kaha.dragon.framework.widget.TopView;
 
 import java.util.List;
 
@@ -24,6 +26,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class PicDetailActivity extends BaseActivity {
 
+    @BindView(R.id.topView)
+    TopView topView;
     @BindView(R.id.viewPager_banner)
     ViewPagerBinner viewPagerBinner;
 
@@ -45,6 +49,8 @@ public class PicDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         community = (Community) getIntent().getSerializableExtra(AppConst.KEY_2);
         setUiData();
+//        topView.setBackground(Color.TRANSPARENT);
+//        topView.setLeftIcon(R.mipmap.back_white);
     }
 
     /**
@@ -59,13 +65,14 @@ public class PicDetailActivity extends BaseActivity {
             List<Integer> imageList = community.getImageList();
             if (imageList.size() == 2) {
                 imageList.addAll(community.getImageList());
-            }else if (imageList.size() == 1){
+            } else if (imageList.size() == 1) {
                 imageList.addAll(community.getImageList());
                 imageList.addAll(community.getImageList());
             }
             viewPagerBinner.setImages(community.getImageList(), context);
             cvHead.setImageResource(community.getHead());
             tvNickName.setText(community.getNick());
+            topView.setTitle(community.getNick());
         }
     }
 }

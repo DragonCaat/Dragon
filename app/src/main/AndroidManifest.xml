@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".dragon.ui.activity.MainActivity">
-
-        </activity>
+        <activity android:name=".dragon.ui.activity.MainActivity"></activity>
         <!-- 图片查看器 -->
         <activity android:name=".dragon.ui.activity.ImagePreviewActivity" />
         <!-- 展示用户信息的activity -->
@@ -32,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".dragon.ui.activity.LoginActivity"></activity>
     </application>
 
 </manifest>
