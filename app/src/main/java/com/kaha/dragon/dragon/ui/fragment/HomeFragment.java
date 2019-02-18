@@ -2,24 +2,40 @@ package com.kaha.dragon.dragon.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 
 import com.kaha.dragon.R;
-import com.kaha.dragon.data.CommunityData;
-import com.kaha.dragon.dragon.entity.BannerData;
-import com.kaha.dragon.dragon.entity.Community;
-import com.kaha.dragon.dragon.ui.adapter.HomeAdapter;
+import com.kaha.dragon.dragon.ui.adapter.MinePagerAdapter;
+import com.kaha.dragon.dragon.ui.fragment.home.CartoonFragment;
+import com.kaha.dragon.dragon.ui.fragment.home.EchelonFragment;
+import com.kaha.dragon.dragon.ui.fragment.home.MusicFragment;
+import com.kaha.dragon.dragon.ui.fragment.home.RecommendFragment;
 import com.kaha.dragon.framework.ui.fragment.BaseFragment;
-import com.kaha.dragon.framework.widget.TopView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 
 /**
  * 首页的fragment
+ * sound of silence
+ * five hundreds miles
+ * <p>
+ * you must be rich enough,
+ *
+ * you are single  ,but you are not lonely
+ *
+ * walk along And you may see the different of yourself
+ *
+ * some day ,u may strong enough to face more challenge
+ *
+ * Memories of childhood come to my mind
+ *
+ * </p>
  *
  * @author Darcy
  * @Date 2019/1/4
@@ -28,17 +44,14 @@ import butterknife.BindView;
  */
 public class HomeFragment extends BaseFragment {
 
-    @BindView(R.id.home_recycleView)
-    RecyclerView homeRecycleView;
-    @BindView(R.id.topView)
-    TopView topView;
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
+    @BindView(R.id.tabs)
+    TabLayout tabLayout;
 
-    //首页适配器
-    private HomeAdapter adapter;
-
-    private List<Community> list = new ArrayList<>();
-
-    private BannerData bannerData;//滚动数据资源
+    //tableLayout的标题源数据
+    private String[] mTitles = {"推荐", "卡通", "优图","音乐"};
+    private List<Fragment> list = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -48,47 +61,30 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        topView.setTitle("首页");
-        topView.setLeftVisb(false);
-        initImage();
-        initData();
-
+        initViewPager();
+        tabLayout.setupWithViewPager(viewPager);
     }
 
-    //初始化图片资源
-    private void initImage() {
+    /**
+     * 初始化viewPager
+     *
+     * @param ,
+     * @return void
+     * @date 2019-01-09
+     */
+    private void initViewPager() {
+        RecommendFragment fragment1 = new RecommendFragment();
+        CartoonFragment fragment2 = new CartoonFragment();
+        EchelonFragment fragment3 = new EchelonFragment();
+        MusicFragment fragment4 = new MusicFragment();
 
-        List<Integer> imageList = new ArrayList<>();
-        imageList.add(R.mipmap.pic1);
-        imageList.add(R.mipmap.pic2);
-        imageList.add(R.mipmap.pic3);
-        imageList.add(R.mipmap.pic4);
+        list.add(fragment1);
+        list.add(fragment2);
+        list.add(fragment3);
+        list.add(fragment4);
 
-        List<String> titleList = new ArrayList<>();
-        titleList.add("只想优雅转身");
-        titleList.add("不料华丽撞墙");
-        titleList.add("如果没有如果");
-        titleList.add("我该如何选择");
-
-        bannerData = new BannerData(imageList, titleList);
-
-    }
-
-    //初始化数据
-    private void initData() {
-        List<String> desList = CommunityData.getDesList();
-        List<String> longDesList = CommunityData.getLongDesList();
-        List<String> nickList = CommunityData.getNickList();
-        List<Integer> headList = CommunityData.getHeadList();
-        List<List<Integer>> lists = CommunityData.getLists();
-
-        list.clear();
-        for (int i = 0; i < desList.size(); i++) {
-            list.add(new Community(nickList.get(i), desList.get(i), headList.get(i), lists.get(i), longDesList.get(i)));
-        }
-        homeRecycleView.setLayoutManager(new GridLayoutManager(context, 1));
-        adapter = new HomeAdapter(list, context);
-        homeRecycleView.setAdapter(adapter);
-        adapter.setBannerData(bannerData);
+        MinePagerAdapter pagerAdapter = new MinePagerAdapter(
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager(), mTitles, list);
+        viewPager.setAdapter(pagerAdapter);
     }
 }

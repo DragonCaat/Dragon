@@ -3,10 +3,12 @@ package com.kaha.dragon.dragon.ui.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.ViewGroup;
 
 import java.util.List;
 
 /**
+ * 首页的viewpager的适配器
  * @author Darcy
  * @Date 2018/12/25
  * @package com.darcy.pet.trunk.pet.ui.adapter
@@ -22,6 +24,11 @@ public class MinePagerAdapter extends FragmentPagerAdapter {
         super(fm);
         this.title = title;
         this.list = list;
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+      //super.destroyItem(container, position, object);
     }
 
     @Override

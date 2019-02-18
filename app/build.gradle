@@ -45,6 +45,13 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:2.0.1'
     //banner
     implementation 'com.youth.banner:banner:1.4.10'
+    //vLayout框架
+//    implementation('com.alibaba.android:vlayout:1.2.6@aar') {
+//        transitive = true
+//    }
+
+    //音乐播放框架
+    implementation 'com.github.iammert:MusicPlayerView:e3b937c729'
 
     //刷新加载的效果
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'

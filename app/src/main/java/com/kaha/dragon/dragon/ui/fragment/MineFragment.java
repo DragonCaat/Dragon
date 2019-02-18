@@ -82,7 +82,7 @@ public class MineFragment extends BaseFragment {
 
     //初始化数据
     private void initData() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             list.add(new Mine());
         }
         rvMine.setLayoutManager(new GridLayoutManager(context, 1));
