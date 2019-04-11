@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="wrap_content"
     android:id="@+id/ll_head"
     android:background="@color/white_ffffff"
     android:orientation="vertical">
@@ -9,13 +9,13 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="25dp" />
 
     <RelativeLayout
         android:id="@+id/rl_bar"
         android:layout_marginStart="10dp"
         android:layout_width="match_parent"
-        android:layout_height="45dp">
+        android:layout_height="49dp">
 
         <RelativeLayout
             android:id="@+id/rl_back"

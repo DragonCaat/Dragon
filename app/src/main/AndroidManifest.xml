@@ -3,22 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.kaha.dragon">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!--精忠报国 _小平赠-->
     <application
         android:name=".framework.base.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-<<<<<<< HEAD
-        <activity android:name=".dragon.ui.activity.MainActivity"></activity>
-=======
+
         <!--首页界面-->
         <activity android:name=".dragon.ui.activity.MainActivity">
             <intent-filter>
@@ -26,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
->>>>>>> 158602f48d4afe186e32573e0f97d5cf3ce87d15
+
         <!-- 图片查看器 -->
         <activity android:name=".dragon.ui.activity.ImagePreviewActivity" />
         <!-- 展示用户信息的activity -->
@@ -36,15 +34,6 @@
         <!-- 美图详情界面 -->
         <activity android:name=".dragon.ui.activity.PicDetailActivity" />
 
-        <!-- 欢迎界面 -->
-        <activity android:name=".dragon.ui.activity.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".dragon.ui.activity.LoginActivity"></activity>
     </application>
 
 </manifest>

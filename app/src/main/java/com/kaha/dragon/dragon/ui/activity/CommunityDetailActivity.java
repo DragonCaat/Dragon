@@ -14,6 +14,7 @@ import com.kaha.dragon.dragon.entity.Community;
 import com.kaha.dragon.dragon.ui.adapter.MinePagerAdapter;
 import com.kaha.dragon.dragon.ui.fragment.CommunityFragment;
 import com.kaha.dragon.dragon.ui.fragment.HomeFragment;
+import com.kaha.dragon.dragon.ui.fragment.PublicCommentFragment;
 import com.kaha.dragon.dragon.widget.ninelayout.NineGridTestLayout;
 import com.kaha.dragon.framework.ui.activity.BaseActivity;
 
@@ -54,7 +55,7 @@ public class CommunityDetailActivity extends BaseActivity {
     //传递过来的数据实体
     private Community community;
 
-    private String[] mTitles = {"心念", "心恋"};
+    private String[] mTitles = {"普通", "会员"};
     private List<Fragment> list = new ArrayList<>();
 
     @Override
@@ -99,8 +100,8 @@ public class CommunityDetailActivity extends BaseActivity {
      * @date 2019-01-09
      */
     private void initViewPager() {
-        HomeFragment fragment1 = new HomeFragment();
-        HomeFragment fragment3 = new HomeFragment();
+        PublicCommentFragment fragment1 = new PublicCommentFragment();
+        PublicCommentFragment fragment3 = new PublicCommentFragment();
         list.add(fragment1);
         list.add(fragment3);
         MinePagerAdapter pagerAdapter = new MinePagerAdapter(
