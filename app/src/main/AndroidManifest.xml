@@ -33,6 +33,8 @@
         <activity android:name=".dragon.ui.activity.CommunityDetailActivity" />
         <!-- 美图详情界面 -->
         <activity android:name=".dragon.ui.activity.PicDetailActivity" />
+        <!--圈子界面-->
+        <activity android:name=".dragon.ui.activity.CircleActivity" />
 
     </application>
 

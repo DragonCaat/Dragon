@@ -36,6 +36,7 @@ public class CartoonAdapter extends BaseRecyclerAdapter<Cartoon, CartoonAdapter.
     protected void onBindViewHolder(CartoonHolder holder, Cartoon data, int position) {
         holder.ivCartoon.setImageResource(data.getImageId());
         holder.tvCartoonName.setText(data.getName());
+        holder.tvCartoonDes.setText(data.getDes());
     }
 
     @NonNull

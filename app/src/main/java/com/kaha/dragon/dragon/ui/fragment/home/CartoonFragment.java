@@ -73,9 +73,10 @@ public class CartoonFragment extends BaseFragment {
     private void initData() {
         List<Integer> imageList = CartoonData.getCartoonImages();
         List<String> nameList = CartoonData.getNames();
+        List<String> desList = CartoonData.getCartDesList();
         list = new ArrayList<>();
         for (int i = 0; i < imageList.size(); i++) {
-            list.add(new Cartoon(imageList.get(i), nameList.get(i)));
+            list.add(new Cartoon(imageList.get(i), nameList.get(i),desList.get(i)));
         }
     }
 }

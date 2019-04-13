@@ -8,11 +8,12 @@
 
     <com.scwang.smartrefresh.layout.header.ClassicsHeader
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
@@ -88,6 +89,13 @@
                         android:layout_marginEnd="10dp"
                         app:oneImageHeight="320dp"
                         app:oneImageWidth="250dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/nine_images"
+                        android:background="@color/gray_f3f3f3" />
+
                 </RelativeLayout>
 
                 <android.support.v7.widget.Toolbar
@@ -102,12 +110,14 @@
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:background="@color/gray_f3f3f3"
+                android:background="@color/white_ffffff"
                 app:tabIndicatorColor="@color/yellow_fed943"
                 app:tabIndicatorHeight="3dp"
+                app:tabGravity="center"
                 app:tabSelectedTextColor="@color/yellow_fed943"
                 app:tabTextColor="@color/black_333333" />
         </android.support.design.widget.AppBarLayout>
+
         <android.support.v4.widget.NestedScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"

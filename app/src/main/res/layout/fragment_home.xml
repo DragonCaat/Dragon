@@ -8,19 +8,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="25dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="50dp">
 
             <TextView
-                android:textSize="12sp"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
@@ -32,29 +31,61 @@
                 android:gravity="center|left"
                 android:paddingStart="10dp"
                 android:text="作品、摄影师、搜搜看"
-                android:textColor="@color/gray_888888" />
+                android:textColor="@color/gray_888888"
+                android:textSize="12sp" />
         </RelativeLayout>
 
     </LinearLayout>
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabs"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="@color/white_ffffff"
-        app:tabIndicatorColor="@color/yellow_fed943"
-        app:tabIndicatorHeight="3dp"
-        app:tabGravity="fill"
-        app:tabSelectedTextColor="@color/black_333333"
-        app:tabTextColor="@color/gray_888888" />
+        android:layout_height="wrap_content">
+
+        <com.androidkun.xtablayout.XTabLayout
+            android:id="@+id/xTablayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:xTabDisplayNum="5"
+            app:xTabIndicatorColor="@color/yellow_fed943"
+            app:xTabIndicatorHeight="4dp"
+            app:xTabIndicatorWidth="15dp"
+            app:xTabMode="scrollable"
+            app:xTabSelectedTextColor="@color/black_000000"
+            app:xTabSelectedTextSize="18sp"
+            app:xTabTextColor="@color/gray_888888"
+            app:xTabTextSelectedBold="true"
+            app:xTabTextSize="14sp" />
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:background="@color/white_80ffffff">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="21dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="10dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/home_back" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_f3f3f3" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white_ffffff" />
+        android:background="@color/white_ffffff"
+        android:paddingTop="4dp" />
 
 
 </LinearLayout>

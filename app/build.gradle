@@ -56,4 +56,9 @@ dependencies {
     //刷新加载的效果
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'
+
+    //自定义的tableLayout
+    implementation 'com.androidkun:XTabLayout:1.1.4'
+
+    implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
 }

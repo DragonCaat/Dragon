@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="120dp"
+        android:layout_height="60dp">
+
+        <com.kaha.dragon.dragon.widget.RoundImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/girl1" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="#点点"
+            android:textColor="@color/white_ffffff" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="60dp" />
+
+</LinearLayout>

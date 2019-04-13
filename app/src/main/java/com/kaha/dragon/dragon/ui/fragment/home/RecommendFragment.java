@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.kaha.dragon.R;
 import com.kaha.dragon.data.CommunityData;
+import com.kaha.dragon.data.HotPicData;
 import com.kaha.dragon.dragon.entity.Community;
+import com.kaha.dragon.dragon.entity.HotPic;
 import com.kaha.dragon.dragon.ui.adapter.home.RecommendAdapter;
 import com.kaha.dragon.framework.ui.fragment.BaseFragment;
 
@@ -31,6 +34,8 @@ public class RecommendFragment extends BaseFragment {
     private RecommendAdapter adapter;
 
     private List<Community> list;
+
+    private List<HotPic> hotPicList;
 
     @Override
     protected int getLayoutId() {
@@ -56,6 +61,15 @@ public class RecommendFragment extends BaseFragment {
         for (int i = 0; i < desList.size(); i++) {
             list.add(new Community(nickList.get(i), desList.get(i), headList.get(i), lists.get(i), longDesList.get(i)));
         }
+
+        List<Integer> head1List = HotPicData.getHeadList();
+        List<String> nick1List = HotPicData.getNickList();
+        List<Integer> imageList = HotPicData.getImagList();
+        hotPicList = new ArrayList<>();
+        hotPicList.clear();
+        for (int i = 0; i < nick1List.size(); i++) {
+            hotPicList.add(new HotPic(imageList.get(i), head1List.get(i), nick1List.get(i), i));
+        }
     }
 
     /**
@@ -67,11 +81,8 @@ public class RecommendFragment extends BaseFragment {
      */
     private void initRecycleView() {
         recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
-        adapter = new RecommendAdapter(context, null);
+        adapter = new RecommendAdapter(context, list, hotPicList);
         recyclerView.setAdapter(adapter);
-
-        adapter.updateData(list);
     }
-
 
 }

@@ -19,9 +19,10 @@ public class Cartoon implements Serializable {
     private String des;
 
 
-    public Cartoon(int imageId, String name) {
+    public Cartoon(int imageId, String name,String des) {
         this.imageId = imageId;
         this.name = name;
+        this.des = des;
     }
 
     public int getImageId() {
