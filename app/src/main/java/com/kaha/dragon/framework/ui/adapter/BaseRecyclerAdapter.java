@@ -15,36 +15,44 @@ import java.util.List;
  * @package com.kaha.dragon.framework.ui.adapter
  * @Desciption
  */
-public abstract class BaseRecyclerAdapter<T,V extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<V> {
+public abstract class BaseRecyclerAdapter<T, V extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<V> {
 
     protected Context context;
     protected List<T> datas;
 
     public BaseRecyclerAdapter(Context context, List<T> datas) {
         this.context = context;
-        if (null==datas|| datas.size()==0){
+        if (null == datas || datas.size() == 0) {
             this.datas = new ArrayList<>();
-        }else {
+        } else {
             this.datas = new ArrayList<>(datas.size());
         }
 
     }
 
-    public void updateData( List<T> list){
+    public void updateData(List<T> list) {
         this.datas.clear();
-        if (list!=null&&list.size()>0){
+        if (list != null && list.size() > 0) {
             this.datas.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    @Override
-    public void onBindViewHolder(V holder, int position) {
-        T data=datas.get(position);
-        onBindViewHolder(holder,data,position);
+
+    public void loadMoreData(List<T> list) {
+        int size = datas.size();
+        this.datas.addAll(list);
+        notifyItemRangeInserted(size, list.size());
     }
 
-    protected abstract void onBindViewHolder(V holder,T data,int position);
+
+    @Override
+    public void onBindViewHolder(V holder, int position) {
+        T data = datas.get(position);
+        onBindViewHolder(holder, data, position);
+    }
+
+    protected abstract void onBindViewHolder(V holder, T data, int position);
 
     @Override
     public int getItemCount() {

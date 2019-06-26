@@ -13,6 +13,7 @@ import com.kaha.dragon.dragon.ui.activity.ShowUserActivity;
 import com.kaha.dragon.framework.ui.adapter.BaseRecyclerAdapter;
 import com.kaha.dragon.framework.ui.adapter.BaseRecyclerViewHolder;
 import com.kaha.dragon.framework.ui.adapter.OnConvertViewClickListener;
+import com.kaha.dragon.framework.utils.glide.GlideUtils;
 
 import java.util.List;
 
@@ -36,6 +37,9 @@ public class MineAdapter extends BaseRecyclerAdapter<Mine, MineAdapter.MineViewH
 
     @Override
     protected void onBindViewHolder(MineViewHolder holder, Mine data, int position) {
+
+        GlideUtils.show(context,R.mipmap.default_head, holder.cvHead,R.mipmap.default_head,R.mipmap.default_head);
+
         holder.cvHead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -10,6 +10,7 @@ import com.androidkun.xtablayout.XTabLayout;
 import com.kaha.dragon.R;
 import com.kaha.dragon.dragon.ui.adapter.MinePagerAdapter;
 import com.kaha.dragon.dragon.ui.fragment.home.CartoonFragment;
+import com.kaha.dragon.dragon.ui.fragment.home.CutePetFragment;
 import com.kaha.dragon.dragon.ui.fragment.home.EchelonFragment;
 import com.kaha.dragon.dragon.ui.fragment.home.FollowFragment;
 import com.kaha.dragon.dragon.ui.fragment.home.HotPicFragment;
@@ -38,6 +39,12 @@ import butterknife.BindView;
  * <p>
  * Memories of childhood come to my mind
  *
+ * when i was young i'd listen to the radio
+ *
+ * dragon  cat  meat fish chicken duck,
+ *
+ * u r my everything
+ *
  * </p>
  *
  * @author Darcy
@@ -53,7 +60,7 @@ public class HomeFragment extends BaseFragment {
     XTabLayout tabLayout;
 
     //tableLayout的标题源数据
-    private String[] mTitles = {"关注", "推荐", "热门", "卡通", "优图", "音乐"};
+    private String[] mTitles = {"关注", "推荐", "热门", "卡通","萌宠", "优图", "音乐"};
     private List<Fragment> list = new ArrayList<>();
 
     @Override
@@ -71,7 +78,7 @@ public class HomeFragment extends BaseFragment {
     /**
      * 初始化viewPager
      *
-     * @param ,
+     * @param ，还是在祖国搬砖比较安全呀
      * @return void
      * @date 2019-01-09
      */
@@ -80,8 +87,9 @@ public class HomeFragment extends BaseFragment {
         RecommendFragment fragment1 = new RecommendFragment();
         HotPicFragment fragment2 = new HotPicFragment();
         CartoonFragment fragment3 = new CartoonFragment();
-        EchelonFragment fragment4 = new EchelonFragment();
-        MusicFragment fragment5 = new MusicFragment();
+        CutePetFragment fragment4 = new CutePetFragment();
+        EchelonFragment fragment5 = new EchelonFragment();
+        MusicFragment fragment6 = new MusicFragment();
 
         list.add(fragment0);
         list.add(fragment1);
@@ -89,6 +97,7 @@ public class HomeFragment extends BaseFragment {
         list.add(fragment3);
         list.add(fragment4);
         list.add(fragment5);
+        list.add(fragment6);
 
         MinePagerAdapter pagerAdapter = new MinePagerAdapter(
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager(), mTitles, list);

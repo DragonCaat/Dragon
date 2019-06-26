@@ -1,7 +1,5 @@
 package com.kaha.dragon.dragon.entity;
 
-import android.widget.LinearLayout;
-
 import java.util.List;
 
 /**

@@ -112,6 +112,7 @@ public class GlideUtils {
                 .load(url)
                 .placeholder(placeResId)//
                 .error(errorResId)//
+                .dontAnimate()
                 .thumbnail(sizeMultiplier)
                 .skipMemoryCache(skipMemoryCache)//是否跳过内存缓存
                 .diskCacheStrategy(diskCacheStrategy)//是否使用磁盘缓存

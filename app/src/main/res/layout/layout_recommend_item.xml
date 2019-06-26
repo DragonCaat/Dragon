@@ -49,9 +49,10 @@
                 android:text="+关注" />
 
             <ImageView
+                android:id="@+id/iv_no_interest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/no_interest" />
+                android:src="@drawable/selector_no_interest" />
         </LinearLayout>
 
 
@@ -68,7 +69,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
 
 
     </RelativeLayout>

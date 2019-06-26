@@ -18,11 +18,17 @@ public class Cartoon implements Serializable {
 
     private String des;
 
+    private String url;
 
-    public Cartoon(int imageId, String name,String des) {
+    public String getUrl() {
+        return url;
+    }
+
+    public Cartoon(int imageId, String name, String des,String url) {
         this.imageId = imageId;
         this.name = name;
         this.des = des;
+        this.url = url;
     }
 
     public int getImageId() {

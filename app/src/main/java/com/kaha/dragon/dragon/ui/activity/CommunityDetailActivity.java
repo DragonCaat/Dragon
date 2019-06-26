@@ -77,6 +77,19 @@ public class CommunityDetailActivity extends BaseActivity {
     }
 
     /**
+     *
+     *
+     * some day the son of chimpanzee will be more stronger
+     *
+     * to my surprise ，some day some time some things good
+     *
+     *                                              送东阳马生序
+     *  余有时即嗜学。家贫，无从致书以观
+     *
+     *
+     * */
+
+    /**
      * 设置UI数据
      *
      * @param ,
@@ -91,6 +104,7 @@ public class CommunityDetailActivity extends BaseActivity {
             tvLongDes.setText(community.getLongDes());
         }
     }
+
 
     /**
      * 初始化viewPager

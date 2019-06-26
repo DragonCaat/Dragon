@@ -35,6 +35,10 @@
         <activity android:name=".dragon.ui.activity.PicDetailActivity" />
         <!--圈子界面-->
         <activity android:name=".dragon.ui.activity.CircleActivity" />
+        <!--卡通详情界面-->
+        <activity android:name=".dragon.ui.activity.CartoonDetailActivity" />
+        <!--热门图片详情的界面-->
+        <activity android:name=".dragon.ui.activity.HotPicDetailActivity" />
 
     </application>
 

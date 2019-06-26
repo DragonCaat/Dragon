@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.kaha.dragon.R;
 import com.kaha.dragon.dragon.entity.Community;
 import com.kaha.dragon.dragon.entity.HotPic;
@@ -22,11 +23,13 @@ import com.kaha.dragon.dragon.utils.EchelonLayoutManager;
 import com.kaha.dragon.dragon.widget.RoundImageView;
 import com.kaha.dragon.framework.ui.adapter.BaseRecyclerAdapter;
 import com.kaha.dragon.framework.ui.adapter.BaseRecyclerViewHolder;
+import com.kaha.dragon.framework.utils.glide.GlideUtils;
 
 import java.util.List;
 
 import butterknife.BindView;
 import de.hdodenhof.circleimageview.CircleImageView;
+import jp.wasabeef.glide.transformations.BlurTransformation;
 
 /**
  * 首页推荐的适配器
@@ -71,13 +74,23 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int i) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int i) {
         if (holder instanceof RecommendHolder) {
             ((RecommendHolder) holder).tvNick.setText(datas.get(i - 1).getNick());
-//        GlideUtils.show(context,data.getHead(),holder.cvHead,
-//                R.mipmap.loading_pic,R.mipmap.loading_pic);
-            ((RecommendHolder) holder).cvHead.setImageResource(datas.get(i - 1).getHead());
-            ((RecommendHolder) holder).imageView.setImageResource(datas.get(i - 1).getImageList().get(0));
+            GlideUtils.show(context, datas.get(i - 1).getHead(), ((RecommendHolder) holder).cvHead,
+                    R.mipmap.default_head, R.mipmap.default_head);
+
+            GlideUtils.show(context, datas.get(i - 1).getImageList().get(0), ((RecommendHolder) holder).imageView,
+                    R.mipmap.loading_pic, R.mipmap.loading_pic);
+
+            ((RecommendHolder) holder).ivNoInterest.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    datas.remove(i - 1);
+                    notifyItemRemoved(i);
+                }
+            });
+
         } else if (holder instanceof RecommendHeadHolder) {
             LinearLayoutManager manager = new LinearLayoutManager(context);
             manager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -116,6 +129,8 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         TextView tvNick;
         @BindView(R.id.image)
         ImageView imageView;
+        @BindView(R.id.iv_no_interest)
+        ImageView ivNoInterest;
 
         public RecommendHolder(View itemView) {
             super(itemView);
@@ -150,7 +165,11 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         @Override
         protected void onBindViewHolder(HeadHolder holder, HotPic data, int position) {
-            holder.imageView.setImageResource(data.getImage());
+            Glide.with(context)
+                    .load(data.getImage())
+                    .placeholder(R.mipmap.loading_pic)
+                    .bitmapTransform(new BlurTransformation(context, 15))
+                    .into(holder.imageView);
             holder.textView.setText("#" + data.getNick());
         }
 

@@ -139,4 +139,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    /**
+     * @param jack 炸弹超人杰克
+     * @param jerry 杰瑞老鼠
+     * @param 阿拉丁 神灯
+     * */
 }

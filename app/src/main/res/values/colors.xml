@@ -3,6 +3,9 @@
     <color name="colorPrimary">#fed943</color>
     <color name="colorPrimaryDark">#fed943</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <color name="purple_Ff5da3">#Ff5da3</color>
     <color name="white_ffffff">#ffffff</color>
     <color name="white_80ffffff">#e6ffffff</color>
     <color name="purple_e066ff">#E066FF</color>

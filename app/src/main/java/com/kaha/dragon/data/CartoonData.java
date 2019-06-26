@@ -19,6 +19,8 @@ public class CartoonData {
 
     private static List<String> cartoonDes = new ArrayList<>();
 
+    private static List<String> cartoonUrl = new ArrayList<>();
+
     /**
      * 获取卡通的名字实体类
      *
@@ -41,6 +43,30 @@ public class CartoonData {
         cartoonNames.add("火星鼠骑士");
         return cartoonNames;
     }
+    /**
+     * 获取卡通的百度百科地址
+     *
+     * @param ，
+     * @return List<String> 描述的集合
+     * @date 2019-01-07
+     */
+    public static List<String> getCartoonUrl() {
+        cartoonUrl.clear();
+
+        cartoonUrl.add("https://baike.baidu.com/item/101%E5%BF%A0%E7%8B%97/12799418?fr=aladdin");
+        cartoonUrl.add("https://baike.baidu.com/item/%E9%A3%9E%E5%A4%A9%E5%BE%B7/2750632?fr=aladdin");
+        cartoonUrl.add("https://baike.baidu.com/item/%E9%98%BF%E6%8B%89%E4%B8%81/31155?fr=aladdin");
+        cartoonUrl.add("https://baike.baidu.com/item/%E5%BD%AD%E5%BD%AD%E4%B8%81%E6%BB%A1%E5%8E%86%E9%99%A9%E8%AE%B0/777821?fr=aladdin");
+        cartoonUrl.add("https://baike.baidu.com/item/%E6%B3%A2%E6%B3%A2%E5%AE%89/2306530?fr=aladdin");
+        cartoonUrl.add("https://baike.baidu.com/item/%E5%A4%A7%E5%8A%9B%E5%A3%AB%E6%B5%B7%E6%A0%BC%E5%8A%9B%E6%96%AF/1635330?fr=aladdin");
+        cartoonUrl.add("https://baike.baidu.com/item/%E4%B8%8B%E8%AF%BE%E5%90%8E/5130268?fr=aladdin");
+        cartoonUrl.add("https://baike.baidu.com/item/%E6%B0%B4%E7%8D%AD%E5%B0%8F%E5%AE%9D%E8%B4%9D/7126737?fr=aladdin");
+        cartoonUrl.add("https://baike.baidu.com/item/%E6%B3%B0%E5%B1%B1%E4%B8%8E%E7%8F%8D%E5%A6%AE/14847855?fr=aladdin");
+        cartoonUrl.add("https://baike.baidu.com/item/%E7%81%AB%E6%98%9F%E9%BC%A0%E9%AA%91%E5%A3%AB/590345?fr=aladdin");
+        return cartoonUrl;
+    }
+
+
 
     /**
      * 卡通图片
@@ -96,23 +122,14 @@ public class CartoonData {
                 "主题曲“Go the Distance”曾获得奥斯卡最佳歌曲提名。");
 
         cartoonDes.add("《下课后》是迪士尼频道1997年推出的一部卡通影集，在这部影集中，我们可以看到他们千奇百怪的" +
-                "下课後生活。如今他们这一干好友也要登上大银幕了！本片是叙述当一个学年结束了，即将要开始漫长的暑假，" +
-                "我们的主人翁正要计划一个多彩多姿的欢乐暑假，不料此时他却得知一个不好的消息，他们学校的前校长 ，" +
-                "是一位偏执的教育工作狂，长久以来就一直计画致力消除所有“下课後”时光，如今他更想使用雷射光改变气候，" +
-                "让冬天永留、夏季不再，让一年到头都会是上学的日子！提杰得知这个消息後，就召集他那一夥好朋友，" +
-                "准备展开他们的“挽救暑假”计划！");
+                "下课後生活。如今他们这一干好友也要登上大银幕了！本片是叙述当一个学年结束了，即将要开始漫长的暑假！");
 
         cartoonDes.add("描写三只傍湖而居、活泼可爱的小水獭，利用他们纯真自然、腾云驾雾的想象力，创造出超越时空的大冒险" +
                 "。三只小水獭花生、果酱和奶油，将在全新内容的『水獭小宝贝』里带来更别出心裁、更可爱有趣的精彩故事。");
 
         cartoonDes.add("内容叙述 Tarzan和Jane在丛林中结婚一周年庆纪念日将近，Jane想要给Tarzan一个特别的惊喜，" +
                 "他们的动物好友Terk和Tantor以及Jane 的爸爸，也都先后来参与帮忙Jane想点子。当Jane想举办宴会，" +
-                "却回想起曾经有一次她的姊妹淘好友来访的一段故事（段落“British Invasion”）；后来又想到可以送个礼物，" +
-                "但又回想起有一次Tarzan为了送她钻石，受人雇用却差点命丧火山的冒险经验（段落“Flying Ace”）；" +
-                "最后，Jane又想到了可跟Tarzan来支浪漫的舞蹈，不过偏偏又回想起Jane的一为英国旧情人驾飞机到" +
-                "来所引发的一段往事（段落 “Volcanic Diamond Mine”）。当种种惊喜方式都觉得行不通，" +
-                "Jane终于体会到「结婚纪念日」是文明世界的东西，她不想让Tarzan难堪，最后觉得自然渡过就好，" +
-                "但她却没想到 Tarzan却为她安排了惊喜…");
+                "却回想起曾经有一次她的姊妹淘好友来访的一段故事");
 
         cartoonDes.add("传说火星上居住着一种类似地球上的老鼠一样但是体型与人相当的生物.他们在火星上和平居住,繁衍生息,过着无" +
                 "忧无虑的生活.突然有一天,远在另一个星系的普鲁塔星人在耗尽了他们自己的能源之后,侵略火星,掠夺火星上的资源,用飞船" +

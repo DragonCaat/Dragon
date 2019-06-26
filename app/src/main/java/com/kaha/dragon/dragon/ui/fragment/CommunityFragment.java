@@ -72,7 +72,8 @@ public class CommunityFragment extends BaseFragment {
 
         list.clear();
         for (int i = 0; i < desList.size(); i++) {
-            list.add(new Community(nickList.get(i), desList.get(i), headList.get(i), lists.get(i), longDesList.get(i)));
+            list.add(new Community(nickList.get(i), desList.get(i),
+                    headList.get(i), lists.get(i), longDesList.get(i)));
         }
         rvCommunity.setLayoutManager(new GridLayoutManager(context, 1));
         adapter = new CommunityAdapter(context, null);
@@ -90,7 +91,8 @@ public class CommunityFragment extends BaseFragment {
             intent.putIntegerArrayListExtra("imageList", (ArrayList<Integer>) urlList);
             intent.putExtra(P.START_ITEM_POSITION, itemPosition);
             intent.putExtra(P.START_IAMGE_POSITION, i);
-            ActivityOptions compat = ActivityOptions.makeSceneTransitionAnimation(getActivity(), imageView, imageView.getTransitionName());
+            ActivityOptions compat = ActivityOptions.makeSceneTransitionAnimation(getActivity(),
+                    imageView, imageView.getTransitionName());
             startActivity(intent, compat.toBundle());
         }
     };
@@ -147,4 +149,11 @@ public class CommunityFragment extends BaseFragment {
             }
         }
     };
+
+    /**
+     * <b>
+     *
+     * </b>
+     *
+     * */
 }

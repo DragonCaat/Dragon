@@ -33,10 +33,10 @@ public class HotPicData {
         imageList.clear();
 
         imageList.add(R.mipmap.girl0);
+        imageList.add(R.mipmap.girl1);
         imageList.add(R.mipmap.girl2);
         imageList.add(R.mipmap.girl3);
         imageList.add(R.mipmap.girl4);
-        imageList.add(R.mipmap.girl13);
         imageList.add(R.mipmap.girl5);
         imageList.add(R.mipmap.girl6);
         imageList.add(R.mipmap.girl7);
@@ -45,6 +45,8 @@ public class HotPicData {
         imageList.add(R.mipmap.girl10);
         imageList.add(R.mipmap.girl11);
         imageList.add(R.mipmap.girl12);
+        imageList.add(R.mipmap.girl13);
+        imageList.add(R.mipmap.girl14);
         return imageList;
     }
 
@@ -57,6 +59,7 @@ public class HotPicData {
      */
     public static List<String> getNickList() {
         nickList.clear();
+        nickList.add("抖音");
         nickList.add("简书");
         nickList.add("知乎");
         nickList.add("贴吧");
@@ -70,12 +73,13 @@ public class HotPicData {
         nickList.add("支付宝");
         nickList.add("优酷");
         nickList.add("美团");
+        nickList.add("简书");
         return nickList;
     }
 
     public static List<Integer> getHeadList() {
         headList.clear();
-
+        headList.add(R.mipmap.douyin);
         headList.add(R.mipmap.jianshu);
         headList.add(R.mipmap.zhihu);
         headList.add(R.mipmap.tieba);
@@ -89,6 +93,7 @@ public class HotPicData {
         headList.add(R.mipmap.zhifubao);
         headList.add(R.mipmap.youku);
         headList.add(R.mipmap.meituan);
+        headList.add(R.mipmap.jianshu);
         return headList;
     }
 }
