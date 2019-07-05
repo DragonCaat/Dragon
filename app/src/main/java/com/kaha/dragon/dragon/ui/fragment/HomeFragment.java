@@ -41,7 +41,7 @@ import butterknife.BindView;
  *
  * when i was young i'd listen to the radio
  *
- * dragon  cat  meat fish chicken duck,
+ * dragon  pet_cat  meat fish chicken duck,
  *
  * u r my everything
  *

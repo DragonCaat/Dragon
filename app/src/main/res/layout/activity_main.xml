@@ -14,18 +14,19 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_above="@+id/rl_bottom"
+        android:layout_marginBottom="50dp"
         android:background="@color/gray_f3f3f3" />
 
     <RelativeLayout
         android:id="@+id/rl_bottom"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/blue_87c7e4"
+        android:background="@android:color/transparent"
         android:clipChildren="false">
 
         <include layout="@layout/layout_home_bottom" />
+
 
     </RelativeLayout>
 

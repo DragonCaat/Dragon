@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -13,6 +14,8 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -70,10 +73,15 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.tv_my)
     TextView tvMy;
 
+    @BindView(R.id.iv_publish)
+    ImageView ivPublish;
+
     private CommunityFragment communityFragment;
     private HomeFragment homeFragment;
     private PictureFragment pictureFragment;
     private MineFragment mineFragment;
+
+    private Fragment currentFragment;
 
     private static Boolean isExit = false;
 
@@ -86,7 +94,8 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initView();
-        llHome.performClick();
+        //llHome.performClick();
+        initFragment();
     }
 
     WindowManager windowManager;
@@ -95,8 +104,32 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-       // showFloating();
+        // showFloating();
     }
+
+    private boolean isOpen = false;
+
+    @OnClick({R.id.ll_publish})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ll_publish:
+                if (isOpen) {
+                    Animation rotate = AnimationUtils.loadAnimation(context,
+                            R.anim.up_img_anim);
+                    rotate.setFillAfter(true);
+                    ivPublish.startAnimation(rotate);
+                    isOpen = false;
+                } else {
+                    Animation rotate = AnimationUtils.loadAnimation(this,
+                            R.anim.down_img_anim);
+                    rotate.setFillAfter(true);
+                    ivPublish.startAnimation(rotate);
+                    isOpen = true;
+                }
+                break;
+        }
+    }
+
 
     private void showFloating() {
         windowManager = (WindowManager) MyApplication.getInstance().getSystemService(Context.WINDOW_SERVICE);
@@ -138,27 +171,35 @@ public class MainActivity extends BaseActivity {
             switch (v.getId()) {
                 //底部选中
                 case R.id.ll_home:
-                    showFragment(homeFragment, HomeFragment.class);
+                   // showFragment(homeFragment, HomeFragment.class);
+                    switchContent(currentFragment, homeFragment);
+                    currentFragment = homeFragment;
                     setSelectedChange(tvHome);
                     ivHome.setImageResource(R.mipmap.home_press);
                     break;
 
                 //美图
                 case R.id.ll_picture:
-                    showFragment(pictureFragment, PictureFragment.class);
+                   // showFragment(pictureFragment, PictureFragment.class);
+                    switchContent(currentFragment, pictureFragment);
+                    currentFragment = pictureFragment;
                     setSelectedChange(tvPicture);
                     ivPicture.setImageResource(R.mipmap.take_photo_press);
                     break;
 
                 //社区
                 case R.id.ll_community:
-                    showFragment(communityFragment, CommunityFragment.class);
+                    //showFragment(communityFragment, CommunityFragment.class);
+                    switchContent(currentFragment, communityFragment);
+                    currentFragment = communityFragment;
                     setSelectedChange(tvCommunity);
                     ivCommunity.setImageResource(R.mipmap.community_press);
                     break;
                 //我的
                 case R.id.ll_my:
-                    showFragment(mineFragment, MineFragment.class);
+                    //showFragment(mineFragment, MineFragment.class);
+                    switchContent(currentFragment, mineFragment);
+                    currentFragment = mineFragment;
                     setSelectedChange(tvMy);
                     ivMy.setImageResource(R.mipmap.my_press);
                     break;
@@ -190,6 +231,44 @@ public class MainActivity extends BaseActivity {
     private void setSelectedChange(TextView tv) {
         tv.setTextColor(getResources().getColor(R.color.black_333333));
     }
+
+
+    //初始化fragment，并默认显示首页fragment
+    private void initFragment(){
+        homeFragment = new HomeFragment();
+        pictureFragment = new PictureFragment();
+        mineFragment = new MineFragment();
+        communityFragment = new CommunityFragment();
+        currentFragment = homeFragment;
+        // 第一次添加Fragments
+        FragmentManager fMgr = getSupportFragmentManager();
+        FragmentTransaction ft = fMgr.beginTransaction();
+        ft.replace(R.id.rl_container, homeFragment);
+        ft.commit();
+    }
+
+    /**
+     * 切换fragment，先将fragment初始化的方式
+     *
+     * @param from 当前显示的fragment
+     * @param to   要显示的fragment
+     * @return void
+     * @date 2019-06-28
+     */
+    public void switchContent(Fragment from, Fragment to) {
+        if (from == to) {
+            return;
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        if (!to.isAdded()) {
+            transaction.hide(from).add(R.id.rl_container, to)
+                    .commitAllowingStateLoss();
+        } else {
+            transaction.hide(from).show(to).commitAllowingStateLoss();
+        }
+    }
+
 
     /**
      * @param fragment 要展示的fragment
@@ -298,12 +377,5 @@ public class MainActivity extends BaseActivity {
         } else {
             finish();
         }
-    }
-
-    @Override
-    public void onActivityReenter(int requestCode, Intent data) {
-        super.onActivityReenter(requestCode, data);
-        communityFragment.getActivityData(data);
-        communityFragment.initShareElement();
     }
 }

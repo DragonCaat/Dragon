@@ -7,292 +7,234 @@
     android:layout_height="match_parent"
     tools:context="com.kaha.dragon.dragon.ui.activity.ShowUserActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/welcome" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl_back_white"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv_back_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/back_white" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_code_white"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv_code_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/code_white" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
     <ImageView
         android:id="@+id/iv_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@mipmap/sea" />
+        android:src="@mipmap/sea"
+        android:visibility="gone" />
 
-
-    <android.support.design.widget.CoordinatorLayout
+    <!--内容详情部分-->
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
-        <!--头部个人头像签名信息-->
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/appBar"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="@android:color/transparent"
-            android:fitsSystemWindows="true">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:contentScrim="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_gravity="bottom"
-                    android:background="#26ffffff"
-                    android:orientation="horizontal">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/cv_show_user"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="20dp"
-                        android:src="@mipmap/ting"
-                        app:civ_border_color="@color/yellow_fed943"
-                        app:civ_border_width="2dp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="16dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tv_show_nickName"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="梦想的天空分外蓝"
-                            android:textColor="@color/white_ffffff"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tv_show_sign"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="科学的甜美气息"
-                            android:textColor="@color/gray_f3f3f3"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:gravity="center"
-                    android:elevation="2dp"
-                    app:layout_collapseMode="pin">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingEnd="20dp">
-
-                        <TextView
-                            android:id="@+id/tv_user_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:gravity="center"
-                            android:text="梦想的天空"
-                            android:textColor="@color/white_ffffff"
-                            android:textSize="16sp" />
-
-                    </RelativeLayout>
-
-                </android.support.v7.widget.Toolbar>
-
-            </android.support.design.widget.CollapsingToolbarLayout>
-
-        </android.support.design.widget.AppBarLayout>
-        <!--内容详情部分-->
-        <android.support.v4.widget.NestedScrollView
-            android:id="@+id/nestedScrollView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#E6FFFFFF"
                 android:orientation="vertical">
 
-                <TextView
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:background="#80000000"
-                    android:paddingStart="20dp"
-                    android:paddingTop="2dp"
-                    android:paddingBottom="2dp"
-                    android:text="真是个深思熟虑的选择"
-                    android:textColor="@color/white_ffffff"
-                    android:textSize="12sp" />
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:titleEnabled="false">
 
-                <TextView
-                    android:id="@+id/tv_show_userName"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_gravity="bottom"
+                        android:background="#26ffffff"
+                        android:orientation="horizontal">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/cv_show_user"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="20dp"
+                            android:src="@mipmap/ting"
+                            app:civ_border_color="@color/yellow_fed943"
+                            app:civ_border_width="2dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_show_nickName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="梦想的天空分外蓝"
+                                android:textColor="@color/gray_f3f3f3"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/tv_show_sign"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="世界上最遥远的距离不是你进不了门\n而是你打开了一扇不属于你的门"
+                                android:textColor="@color/gray_d3d3d3"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </android.support.design.widget.CollapsingToolbarLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="12dp"
-                    android:drawableStart="@mipmap/home_press"
-                    android:drawablePadding="10dp"
-                    android:gravity="center|start"
-                    android:text="呵呵哒"
-                    android:textColor="@color/black_333333"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent"
+                    android:background="#EDf3f3f3"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/layout_show_user_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_f3f3f3"
+        android:elevation="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetStart="0dp">
+
+        <android.support.v7.widget.ButtonBarLayout
+            android:id="@+id/buttonBarLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:orientation="vertical">
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray_f3f3f3" />
+                    android:layout_height="25dp" />
 
-                <TextView
-                    android:id="@+id/user_reputation"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:drawableStart="@mipmap/home_press"
-                    android:drawablePadding="10dp"
-                    android:gravity="center|start"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="10dp"
-                    android:text="信誉 一般 (60)"
-                    android:textColor="@color/black_333333"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:id="@+id/rl_back"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:background="?android:attr/selectableItemBackground">
 
-                    <View
-                        android:layout_width="100dp"
-                        android:layout_height="1dp"
-                        android:background="@color/gray_d3d3d3" />
+                        <ImageView
+                            android:id="@+id/iv_back"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/back_black" />
+                    </RelativeLayout>
 
                     <TextView
+                        android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:gravity="center"
-                        android:text="主题照片"
-                        android:textColor="@color/black_333333" />
+                        android:layout_centerInParent="true"
+                        android:text="我的资料"
+                        android:textColor="@color/black_333333"
+                        android:textSize="18sp" />
 
-                    <View
-                        android:layout_width="100dp"
-                        android:layout_height="1dp"
-                        android:background="@color/gray_d3d3d3" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <RelativeLayout
+                        android:id="@+id/rl_code"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:background="?android:attr/selectableItemBackground">
 
                         <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="202dp"
-                            android:layout_weight="2"
-                            android:scaleType="centerCrop"
-                            android:src="@mipmap/yanzhu1" />
-
-                        <View
-                            android:layout_width="2dp"
-                            android:layout_height="200dp"
-                            android:background="@color/white_ffffff" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
+                            android:id="@+id/iv_code"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:layout_centerInParent="true"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/code_black" />
+                    </RelativeLayout>
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="100dp"
-                                android:scaleType="centerCrop"
-                                android:src="@mipmap/yanzhu2" />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="2dp"
-                                android:background="@color/white_ffffff" />
-
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="100dp"
-                                android:scaleType="centerCrop"
-                                android:src="@mipmap/yanzhu3" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="2dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="100dp"
-                            android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@mipmap/yanzhu3" />
-
-                        <View
-                            android:layout_width="2dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/white_ffffff" />
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="100dp"
-                            android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@mipmap/yanzhu4" />
-
-                        <View
-                            android:layout_width="2dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/white_ffffff" />
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="100dp"
-                            android:layout_weight="1"
-                            android:scaleType="centerCrop"
-                            android:src="@mipmap/yanzhu5" />
-                    </LinearLayout>
-                </LinearLayout>
-
-
-
-
+                </RelativeLayout>
             </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
-    </android.support.design.widget.CoordinatorLayout>
+        </android.support.v7.widget.ButtonBarLayout>
 
-    <com.kaha.dragon.framework.widget.TopView
-        android:id="@+id/topView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    </android.support.v7.widget.Toolbar>
 
 </RelativeLayout>

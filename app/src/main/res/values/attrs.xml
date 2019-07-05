@@ -10,4 +10,10 @@
         <attr name="oneImageHeight" format="dimension" />
         <attr name="image_ratio" format="float" />
     </declare-styleable>
+
+    <!--京东广告布局-->
+    <declare-styleable name="JDAdverView">
+        <attr name="gap" format="integer" />
+        <attr name="animDuration" format="integer" />
+    </declare-styleable>
 </resources>

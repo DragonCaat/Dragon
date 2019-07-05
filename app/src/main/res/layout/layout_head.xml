@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_head"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/ll_head"
     android:background="@color/white_ffffff"
     android:orientation="vertical">
 
@@ -13,9 +13,9 @@
 
     <RelativeLayout
         android:id="@+id/rl_bar"
-        android:layout_marginStart="10dp"
         android:layout_width="match_parent"
-        android:layout_height="49dp">
+        android:layout_height="49dp"
+        android:paddingStart="10dp">
 
         <RelativeLayout
             android:id="@+id/rl_back"
@@ -64,8 +64,8 @@
     </RelativeLayout>
 
     <View
-        android:background="@color/gray_f3f3f3"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1dp"
+        android:background="@color/gray_f3f3f3" />
 
 </LinearLayout>

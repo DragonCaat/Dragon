@@ -7,7 +7,7 @@ android {
         minSdkVersion 22
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -49,6 +49,10 @@ dependencies {
 //    implementation('com.alibaba.android:vlayout:1.2.6@aar') {
 //        transitive = true
 //    }
+    implementation 'com.chw.android:widget:3.0.3'
+
+    //点赞
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
 
     //音乐播放框架
     implementation 'com.github.iammert:MusicPlayerView:e3b937c729'

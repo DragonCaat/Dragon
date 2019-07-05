@@ -2,30 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:background="@color/white_ffffff"
+    android:layout_height="70dp"
+    android:background="@android:color/transparent"
     android:clipChildren="false"
-    android:gravity="center"
+    android:gravity="center|bottom"
     android:orientation="horizontal">
 
     <LinearLayout
         android:id="@+id/ll_home"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/iv_home"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:padding="2dp"
+            android:scaleType="fitXY"
             android:src="@mipmap/home_press" />
 
         <TextView
             android:id="@+id/tv_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
             android:gravity="center"
             android:text="首页"
             android:textColor="@color/black_333333"
@@ -35,53 +37,74 @@
     <LinearLayout
         android:id="@+id/ll_picture"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/iv_picture"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:padding="2dp"
+            android:scaleType="fitXY"
             android:src="@mipmap/take_photo_normal" />
 
 
         <TextView
             android:id="@+id/tv_picture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
             android:gravity="center"
             android:text="美图"
             android:textColor="@color/black_4d4d4d"
             android:textSize="12sp" />
     </LinearLayout>
 
-    <ImageView
+    <LinearLayout
+        android:id="@+id/ll_publish"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_weight="1"
-        android:src="@mipmap/publish"
-        android:visibility="gone" />
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_publish"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:src="@mipmap/publish" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:text="发布"
+            android:textColor="@color/gray_888888"
+            android:textSize="12sp" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_community"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/iv_community"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:padding="2dp"
+            android:scaleType="fitXY"
             android:src="@mipmap/community_normal" />
 
         <TextView
             android:id="@+id/tv_community"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
             android:gravity="center"
             android:text="社区"
             android:textColor="@color/black_4d4d4d"
@@ -91,22 +114,24 @@
     <LinearLayout
         android:id="@+id/ll_my"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/iv_my"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:padding="2dp"
+            android:scaleType="fitXY"
             android:src="@mipmap/my_normal"
             tools:ignore="NestedWeights" />
 
         <TextView
             android:id="@+id/tv_my"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
             android:gravity="center"
             android:text="我的"
             android:textColor="@color/black_4d4d4d"

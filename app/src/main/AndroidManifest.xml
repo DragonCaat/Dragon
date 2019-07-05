@@ -16,15 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <!--首页界面-->
-        <activity android:name=".dragon.ui.activity.MainActivity">
+        <!--欢迎界面-->
+        <activity android:name=".dragon.ui.activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <!--首页界面-->
+        <activity android:name=".dragon.ui.activity.MainActivity" />
         <!-- 图片查看器 -->
         <activity android:name=".dragon.ui.activity.ImagePreviewActivity" />
         <!-- 展示用户信息的activity -->
@@ -39,6 +39,10 @@
         <activity android:name=".dragon.ui.activity.CartoonDetailActivity" />
         <!--热门图片详情的界面-->
         <activity android:name=".dragon.ui.activity.HotPicDetailActivity" />
+        <!--仿微信朋友圈界面-->
+        <activity android:name=".dragon.ui.activity.CircleZoneActivity" />
+        <!--王者荣耀英雄展示界面-->
+        <activity android:name=".dragon.ui.activity.KingHeroActivity" />
 
     </application>
 

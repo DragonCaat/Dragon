@@ -34,11 +34,21 @@
             app:civ_border_color="@color/yellow_fed943"
             app:civ_border_width="1dp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+        <com.like.LikeButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:src="@mipmap/icon_home_like_before" />
+            app:anim_scale_factor="1.5"
+            app:circle_end_color="@color/colorAccent"
+            app:circle_start_color="@color/colorPrimary"
+            app:dots_primary_color="@color/colorAccent"
+            app:dots_secondary_color="@color/colorPrimary"
+            app:icon_type="Star"
+            app:icon_size="30dp"
+            app:is_enabled="true"
+            app:like_drawable="@mipmap/icon_home_like_after"
+            app:liked="false"
+            app:unlike_drawable="@mipmap/icon_home_like_before" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -60,18 +70,27 @@
             android:textColor="@color/white_ffffff"
             android:textSize="12sp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="15dp"
-            android:src="@mipmap/icon_share" />
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/ll_shared"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1.3万"
-            android:textColor="@color/white_ffffff"
-            android:textSize="12sp" />
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:src="@mipmap/icon_share" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.3万"
+                android:textColor="@color/white_ffffff"
+                android:textSize="12sp" />
+        </LinearLayout>
 
     </LinearLayout>
 

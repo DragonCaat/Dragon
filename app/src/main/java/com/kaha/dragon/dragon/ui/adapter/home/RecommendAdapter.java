@@ -1,5 +1,6 @@
 package com.kaha.dragon.dragon.ui.adapter.home;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -16,9 +17,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.kaha.dragon.R;
+import com.kaha.dragon.dragon.base.AppConst;
 import com.kaha.dragon.dragon.entity.Community;
 import com.kaha.dragon.dragon.entity.HotPic;
 import com.kaha.dragon.dragon.ui.activity.CircleActivity;
+import com.kaha.dragon.dragon.ui.activity.ShowUserActivity;
 import com.kaha.dragon.dragon.utils.EchelonLayoutManager;
 import com.kaha.dragon.dragon.widget.RoundImageView;
 import com.kaha.dragon.framework.ui.adapter.BaseRecyclerAdapter;
@@ -79,6 +82,16 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             ((RecommendHolder) holder).tvNick.setText(datas.get(i - 1).getNick());
             GlideUtils.show(context, datas.get(i - 1).getHead(), ((RecommendHolder) holder).cvHead,
                     R.mipmap.default_head, R.mipmap.default_head);
+
+            ((RecommendHolder) holder).cvHead.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, ShowUserActivity.class);
+                    intent.putExtra(AppConst.KEY_1,datas.get(i - 1));
+                    context.startActivity(intent);
+                }
+            });
+
 
             GlideUtils.show(context, datas.get(i - 1).getImageList().get(0), ((RecommendHolder) holder).imageView,
                     R.mipmap.loading_pic, R.mipmap.loading_pic);
@@ -163,6 +176,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             super(context, datas);
         }
 
+        @SuppressLint("SetTextI18n")
         @Override
         protected void onBindViewHolder(HeadHolder holder, HotPic data, int position) {
             Glide.with(context)

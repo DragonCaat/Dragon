@@ -1,152 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white_ffffff">
-
-    <ImageView
-        android:id="@+id/iv_mine_bg"
+    android:layout_height="match_parent">
+    <!--背景图片-->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="670dp"
-        android:layout_marginTop="-300dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/girl0"
-        app:layout_collapseMode="parallax" />
+        android:layout_height="match_parent">
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
-        android:id="@+id/refreshLayout"
+        <ImageView
+            android:id="@+id/iv_head_bg"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/girl13" />
+
+    </RelativeLayout>
+    <!--白的返回图标-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp">
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/rl_back_white"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv_back_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/back_white" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_code_white"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv_code_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/set_white" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!--内容详情部分-->
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srlEnablePreviewInEditMode="false">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <com.scwang.smartrefresh.layout.header.ClassicsHeader
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srlAccentColor="@android:color/white" />
-
-        <android.support.v4.widget.NestedScrollView
-            android:id="@+id/scrollView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:overScrollMode="never"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="300dp" />
 
-                <android.support.design.widget.CollapsingToolbarLayout
-                    android:id="@+id/collapse"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:contentScrim="?attr/colorPrimary"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                    app:titleEnabled="false">
+                    android:orientation="vertical">
 
-                    <RelativeLayout
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginTop="200dp"
-                        android:orientation="vertical">
+                        android:layout_height="35dp" />
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="40dp"
-                            android:background="@android:color/white"
-                            android:paddingLeft="15dp"
-                            android:paddingTop="10dp"
-                            android:paddingRight="15dp"
-                            android:paddingBottom="10dp">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@drawable/rectangle_top_white" />
+                </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/attention"
-                                android:layout_width="80dp"
-                                android:layout_height="30dp"
-                                android:layout_alignParentEnd="true"
-                                android:background="@drawable/rectangle_pic"
-                                android:gravity="center"
-                                android:text="关注"
-                                android:textColor="@color/white_ffffff" />
+                <FrameLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true">
 
-                            <TextView
-                                android:id="@+id/nickname"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/attention"
-                                android:text="Darcy"
-                                android:textColor="@color/black_333333"
-                                android:textSize="16sp" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@mipmap/head"
+                        app:civ_border_color="#33ffffff"
+                        app:civ_border_width="2dp" />
+                </FrameLayout>
+            </RelativeLayout>
 
-                            <TextView
-                                android:id="@+id/signature"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/nickname"
-                                android:layout_marginTop="4dp"
-                                android:ellipsize="end"
-                                android:gravity="top"
-                                android:lineSpacingExtra="5dp"
-                                android:text="我OK的."
-                                android:textColor="@color/gray_888888"
-                                android:textSize="14sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white_ffffff"
+                android:text="@string/dp" />
 
-                        </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white_ffffff"
+                android:text="@string/dp" />
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/avatar"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginStart="10dp"
-                            android:src="@mipmap/head"
-                            app:civ_border_color="@color/yellow_fed943"
-                            app:civ_border_overlay="true"
-                            app:civ_border_width="3dp" />
+        </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/visitor"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="15dp"
-                            android:background="?attr/selectableItemBackground"
-                            android:shadowColor="#aa000000"
-                            android:shadowDx="2.5"
-                            android:shadowDy="2.5"
-                            android:shadowRadius="10"
-                            android:text="访客总量 15"
-                            android:textColor="@android:color/white" />
-                    </RelativeLayout>
-                </android.support.design.widget.CollapsingToolbarLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
-                    android:background="@color/gray_f3f3f3" />
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycleView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white_ffffff" />
-
-            </LinearLayout>
-
-        </android.support.v4.widget.NestedScrollView>
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </android.support.v4.widget.NestedScrollView>
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:background="@color/gray_f3f3f3"
-        android:elevation="2dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:elevation="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetStart="0dp">
 
         <android.support.v7.widget.ButtonBarLayout
             android:id="@+id/buttonBarLayout"
@@ -154,18 +138,67 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Darcy"
-                android:textColor="@color/black_333333"
-                android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:orientation="vertical">
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:visibility="gone"
+                        android:id="@+id/rl_back"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:background="?android:attr/selectableItemBackground">
+
+                        <ImageView
+                            android:id="@+id/iv_back"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/back_black" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="我的资料"
+                        android:textColor="@color/black_333333"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_code"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:background="?android:attr/selectableItemBackground">
+
+                        <ImageView
+                            android:id="@+id/iv_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/set_black" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
         </android.support.v7.widget.ButtonBarLayout>
 
     </android.support.v7.widget.Toolbar>
 
-
-</FrameLayout>
+</RelativeLayout>

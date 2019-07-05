@@ -11,6 +11,7 @@ import android.view.WindowManager;
 
 
 import com.kaha.dragon.framework.utils.LogUtils;
+import com.kaha.dragon.framework.utils.statusbar.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,11 +39,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //设置状态栏透明
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        // 设置状态栏字体黑色
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-
+        //设置状态栏透明,字体变黑
+        StatusBarUtil.setImmersiveStatusBar(this, true);
         tag = this.getClass().getSimpleName();
         context = this;
         activity = this;
